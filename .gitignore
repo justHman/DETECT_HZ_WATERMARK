@@ -2,3 +2,24 @@ test.ipynb
 venv/
 __pycache__/
 *.pyc
+
+# Ignore temporary files
+*.tmp
+*.log
+*.bak
+*.swp
+
+# Ignore data and results
+/data/temp/
+/data/audio/
+/results/plots/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore Python environment files
+*.env
+*.venv
+pip-log.txt
+test/__pycache__/
