@@ -1,24 +1,26 @@
 import os
-import av
+import subprocess
 
-def video_to_audio(video_path, output_audio_path="data/tmp.aac"):
+def video_to_audio(video_path, output_audio_path="data/audio/tmp.aac"):
     os.makedirs(os.path.dirname(output_audio_path), exist_ok=True)
 
     try:
-        container = av.open(video_path)
-        
-        # Tạo tệp âm thanh đầu ra
-        with open(output_audio_path, "wb") as audio_file:
-            # Duyệt qua các gói dữ liệu trong luồng âm thanh
-            for frame in container.decode(audio=0):  # Giả sử luồng âm thanh đầu tiên
-                audio_file.write(frame.planes[0].to_bytes())
-        
+        # Lệnh ffmpeg để trích xuất âm thanh
+        command = [
+            "ffmpeg",
+            "-i", video_path,  # Đầu vào là tệp video
+            "-vn",             # Bỏ phần video
+            "-acodec", "copy", # Giữ nguyên codec âm thanh
+            output_audio_path  # Đầu ra là tệp âm thanh
+        ]
+        # Chạy lệnh ffmpeg
+        subprocess.run(command, check=True)
         print(f"Âm thanh đã được lưu tại: {output_audio_path}")
         return output_audio_path
-    except Exception as e:
-        print(f"Lỗi khi chuyển đổi video thành âm thanh: {e}")
+    except subprocess.CalledProcessError as e:
+        print(f"Lỗi khi trích xuất âm thanh: {e}")
+        return None
     
-
 def check_type(file_path):
     _, ext = os.path.splitext(file_path)
     ext = ext.lower()
@@ -31,5 +33,10 @@ def check_type(file_path):
         return "audio"
     else:
         return "unknown"
+    
+if __name__ == "__main__":
+    video_file = r"D:\Downloads\7229528504080.mp4"
+    audio_file = video_to_audio(video_file, output_audio_path="data/output_audio.aac")
+    print(f"Extracted audio file: {audio_file}")
     
     

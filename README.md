@@ -1,90 +1,151 @@
 # 🎵 Audio Frequency Analyzer
 
-Ứng dụng phân tích và trực quan hóa phổ tần số âm thanh sử dụng FFT (Fast Fourier Transform). Hỗ trợ cả file video và audio.
-
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-red)
-![License](https://img.shields.io/badge/License-MIT-green)
+Công cụ phân tích tần số âm thanh chuyên nghiệp với giao diện Streamlit hiện đại.
 
 ## ✨ Tính năng
 
-- 📁 **Upload đa định dạng**: Hỗ trợ video (MP4, AVI, MOV, MKV, FLV, WMV) và audio (MP3, WAV, AAC, FLAC, OGG, M4A)
-- 🔄 **Tự động chuyển đổi**: Tự động trích xuất audio từ video
-- 📊 **Phân tích FFT**: Phân tích phổ tần số sử dụng Fast Fourier Transform
-- 📈 **Biểu đồ trực quan**: Hiển thị biểu đồ phổ tần số và spectrogram
-- ⚙️ **Tùy chỉnh linh hoạt**: Điều chỉnh tham số tần số, thang đo dB, và nhiều hơn nữa
-- 🎨 **Giao diện đẹp mắt**: Theme công nghệ hiện đại với hiệu ứng gradient và glow
-- 💾 **Lưu kết quả**: Tùy chọn lưu biểu đồ vào thư mục
-
-## 📋 Yêu cầu hệ thống
-
-- Python 3.8 trở lên
-- Git (để clone repository)
+- 📁 **Upload Files**: Hỗ trợ cả file audio và video
+- 📊 **Frequency Analysis**: Phân tích phổ tần số chi tiết  
+- 📈 **Spectrogram**: Tạo spectrogram với nhiều tùy chọn
+- ⚙️ **Tùy chỉnh tham số**: Điều chỉnh freq_min, freq_max, use_db
+- 💾 **Lưu kết quả**: Tự động lưu plots và cho phép tải về
+- 🎨 **Giao diện đẹp**: Thiết kế hiện đại với chủ đề công nghệ
 
 ## 🚀 Cài đặt và chạy
 
-### Bước 1: Clone repository
-
+### 1. Clone repository
 ```bash
 git clone https://github.com/justHman/DETECT_HZ_WATERMARK.git
 cd DETECT_HZ_WATERMARK
 ```
 
-### Bước 2: Tạo môi trường ảo (khuyến nghị)
+### 2. Cài đặt thư viện
 
-**Windows:**
+#### 🪟 Windows
 ```bash
-python -m venv venv
-venv\Scripts\activate
-```
-
-### Bước 3: Cài đặt thư viện
-
-```bash
+# Sử dụng pip
 pip install -r requirements.txt
+
+# Hoặc cài từng package
+pip install streamlit librosa matplotlib numpy soundfile scipy ffmpeg-python
 ```
 
-**Hoặc cài đặt thủ công:**
+#### 🍎 macOS
 ```bash
-pip install streamlit librosa numpy matplotlib av
+# Cài đặt Homebrew (nếu chưa có)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Cài đặt Python dependencies
+pip3 install -r requirements.txt
 ```
 
-### Bước 4: Chạy ứng dụng
+### 3. Cài đặt FFmpeg (Bắt buộc cho video processing)
 
+#### 🪟 Windows
 ```bash
-streamlit run app\layout.py
+# Cách 1: Tải manual
+# Tải từ: https://ffmpeg.org/download.html
+# Giải nén và thêm vào System PATH
+
+# Cách 2: Sử dụng Chocolatey
+choco install ffmpeg
+
+# Cách 3: Sử dụng conda
+conda install -c conda-forge ffmpeg
 ```
 
-Ứng dụng sẽ tự động mở trong trình duyệt tại địa chỉ: `http://localhost:8501`
+#### 🍎 macOS
+```bash
+# Cách 1: Homebrew (khuyến nghị)
+brew install ffmpeg
 
-## 📖 Hướng dẫn sử dụng
+# Cách 2: MacPorts
+sudo port install ffmpeg
 
-1. **Tải lên file**: Click vào vùng upload để chọn file video hoặc audio
-2. **Cấu hình tham số** (sidebar):
-   - **Tần số tối thiểu**: Tần số thấp nhất hiển thị (mặc định: 20 Hz)
-   - **Tần số tối đa**: Tần số cao nhất hiển thị (mặc định: 20000 Hz)
-   - **Sử dụng thang đo dB**: Hiển thị biên độ theo decibel (mặc định: Bật)
-   - **Lưu biểu đồ**: Lưu kết quả vào `results/plots/` (mặc định: Tắt)
-3. **Phân tích**: Nhấn nút "🚀 Phân tích tần số"
-4. **Xem kết quả**: Xem biểu đồ phổ tần số và spectrogram
+# Kiểm tra cài đặt
+ffmpeg -version
+```
 
-## 📊 Thông tin kỹ thuật
+### 4. Chạy ứng dụng
 
-### Sample Rate và tần số FFT
+#### Cách 1: Streamlit trực tiếp
+```bash
+# Windows
+streamlit run app/streamlit_app.py
+
+# macOS/Linux
+streamlit run app/streamlit_app.py
+# Hoặc
+python3 -m streamlit run app/streamlit_app.py
+```
+
+#### Cách 2: Script tự động
+```bash
+# Windows
+python run_app.py
+
+# macOS/Linux
+python3 run_app.py
+```
+
+**🌐 Ứng dụng sẽ mở tại**: http://localhost:8501
+
+### 5. Khắc phục sự cố macOS
+
+#### Lỗi permission denied
+```bash
+# Cấp quyền thực thi
+chmod +x run_app.py
+
+# Sử dụng python3 thay vì python
+python3 run_app.py
+```
+
+#### Lỗi SSL certificate (macOS)
+```bash
+# Cài đặt certificates
+/Applications/Python\ 3.x/Install\ Certificates.command
+
+# Hoặc sử dụng conda
+conda install certifi
+```
+
+#### Lỗi librosa trên M1/M2 Mac
+```bash
+# Sử dụng conda-forge
+conda install -c conda-forge librosa
+
+# Hoặc cài đặt dependencies riêng
+brew install portaudio
+pip3 install librosa
+```
+
+## 📋 Hướng dẫn sử dụng
+
+1. **Upload File**: Chọn file audio/video từ sidebar
+2. **Cài đặt tham số**:
+   - `freq_min`: Tần số tối thiểu (Hz)
+   - `freq_max`: Tần số tối đa (Hz) 
+   - `use_db`: Hiển thị theo thang dB
+   - `save_plots`: Lưu biểu đồ vào thư mục results/
+3. **Xem kết quả**: Biểu đồ tần số và spectrogram
+4. **Tải về**: Download plots đã tạo
+
+## 📊 Bảng tham khảo
+
+### Sample Rate và tần số tối đa
 
 | Sample Rate | Max tần số FFT thấy | 30 kHz có thấy không? |
-|-------------|---------------------|----------------------|
-| 44100 Hz    | 22050 Hz            | ❌ Không              |
-| 48000 Hz    | 24000 Hz            | ❌ Không              |
-| 96000 Hz    | 48000 Hz            | ✔️ Có                |
-| 192000 Hz   | 96000 Hz            | ✔️ Có                |
+| ----------- | ------------------- | --------------------- |
+| 44100 Hz    | 22050 Hz            | ❌ Không               |
+| 48000 Hz    | 24000 Hz            | ❌ Không               |
+| 96000 Hz    | 48000 Hz            | ✔️ Có                 |
+| 192000 Hz   | 96000 Hz            | ✔️ Có                 |
 
-**Lưu ý:** Tần số tối đa mà FFT có thể phát hiện là **Sample Rate / 2** (Nyquist frequency).
-
-### Mức độ dB
+### Mức độ âm thanh (dB)
 
 | Mức               | Giá trị (dB) | Ý nghĩa                    |
-|-------------------|--------------|----------------------------|
+| ----------------- | ------------ | -------------------------- |
 | **Rất to**        | +10 → +60 dB | Rất rõ, peak mạnh          |
 | **To**            | 0 → +10 dB   | Rõ ràng                    |
 | **Vừa**           | -20 → 0 dB   | Nghe được nếu không bị che |
@@ -92,76 +153,66 @@ streamlit run app\layout.py
 | **Rất nhỏ**       | -80 → -40 dB | Hầu như không nghe thấy    |
 | **Không tồn tại** | < -100 dB    | Gần noise floor            |
 
-## 📁 Cấu trúc dự án
+## 🛠️ Cấu trúc project
 
 ```
 visualize_freq_system/
-├── app.py                 # Entry point chính
-├── main.py                # Script CLI (không dùng cho Streamlit)
-├── requirements.txt       # Danh sách thư viện
-├── README.md             # File này
-│
-├── app/                  # Thư mục ứng dụng Streamlit
-│   ├── layout.py        # Giao diện chính
-│   ├── css.py           # CSS styling
-│   └── backend.py       # Logic xử lý
-│
-├── utils/               # Thư mục tiện ích
-│   ├── processor.py    # Xử lý video/audio
-│   └── plotter.py      # Tạo biểu đồ
-│
-├── data/               # Thư mục dữ liệu
-│   └── audio/         # File audio mẫu
-│
-└── results/           # Thư mục kết quả
-    └── plots/        # Biểu đồ đã lưu
+├── app/
+│   ├── streamlit_app.py    # Streamlit main app
+│   ├── style.css          # CSS styling
+│   └── backend/
+│       ├── audio_processor.py  # Audio processing
+│       └── file_handler.py     # File handling
+├── utils/
+│   ├── processor.py       # Original utilities
+│   └── plotter.py         # Original plotting
+├── data/
+│   ├── audio/            # Converted audio files
+│   └── temp/             # Temporary uploads
+├── results/
+│   └── plots/            # Generated plots
+├── main.py               # Original CLI script
+└── README.md
 ```
 
-## 🔧 Thư viện sử dụng
+## 🎯 Supported formats
 
-- **Streamlit**: Framework web cho ứng dụng data science
-- **Librosa**: Thư viện phân tích âm thanh
-- **NumPy**: Tính toán số học
-- **Matplotlib**: Tạo biểu đồ
-- **PyAV**: Xử lý video/audio (trích xuất audio từ video)
+**Audio**: MP3, WAV, AAC, FLAC, OGG, M4A
+**Video**: MP4, AVI, MOV, MKV, FLV, WMV, WEBM
 
-## 🐛 Xử lý lỗi thường gặp
+## 🔧 Troubleshooting
 
-### Lỗi: `ModuleNotFoundError`
-**Giải pháp**: Đảm bảo đã cài đặt đầy đủ thư viện:
+### FFmpeg not found
 ```bash
-pip install -r requirements.txt
+# Windows - Thêm FFmpeg vào PATH hoặc:
+conda install ffmpeg
+# hoặc
+pip install ffmpeg-python
 ```
 
-### Lỗi: Không thể trích xuất audio từ video
-**Giải pháp**: Kiểm tra xem file video có luồng audio hợp lệ không.
+### Lỗi import librosa
+```bash
+pip install librosa soundfile
+# Trên Windows có thể cần:
+pip install librosa[display]
+```
 
-### Lỗi: Tần số quá cao không hiển thị
-**Giải pháp**: Sample rate của file audio phải ít nhất gấp đôi tần số muốn phân tích (Nyquist theorem).
+### Port đã được sử dụng
+```bash
+streamlit run app/streamlit_app.py --server.port 8502
+```
 
-## 📝 Ghi chú
+## 📞 Liên hệ
 
-- File upload sẽ được lưu tạm thời trong thư mục `temp` của hệ thống
-- Biểu đồ mặc định không được lưu trừ khi bật tùy chọn "Lưu biểu đồ"
-- Để phát hiện tần số cao (>22 kHz), cần file audio với sample rate cao (≥96 kHz)
-
-## 🤝 Đóng góp
-
-Mọi đóng góp đều được chào đón! Hãy tạo issue hoặc pull request.
+- GitHub: [justHman](https://github.com/justHman)
+- Repository: [DETECT_HZ_WATERMARK](https://github.com/justHman/DETECT_HZ_WATERMARK)
 
 ## 📄 License
 
-MIT License - Xem file `LICENSE` để biết thêm chi tiết.
-
-## 👨‍💻 Tác giả
-
-**justHman**
-- GitHub: [@justHman](https://github.com/justHman)
-- Repository: [DETECT_HZ_WATERMARK](https://github.com/justHman/DETECT_HZ_WATERMARK)
+MIT License - xem file LICENSE để biết thêm chi tiết.
 
 ---
 
-<div align="center">
-  <p>🎵 Built with ❤️ using Python, Streamlit, and FFT 🚀</p>
-  <p>⭐ Star this repo if you find it useful!</p>
-</div>
+**Phát triển bởi**: justHman  
+**Version**: 1.0.0  
+**Last Updated**: November 2024

@@ -1,0 +1,387 @@
+/* Custom CSS for Audio Frequency Analyzer */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Global Styles */
+.stApp {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/* Main Header */
+.main-header {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.main-header h1 {
+    font-size: 3rem;
+    margin: 0;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.main-header p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0 0 0;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* Welcome Section */
+.welcome-section {
+    background: linear-gradient(135deg, #e91e63 0%, #ad1457 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    color: #ffffff;
+    margin: 2rem 0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.welcome-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.welcome-section ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.welcome-section li {
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.welcome-section li:before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    color: #ffd700;
+    font-weight: bold;
+}
+
+/* Sidebar Styling */
+.css-1d391kg {
+    background: linear-gradient(180deg, #263238 0%, #37474f 100%);
+}
+
+.css-1d391kg .stSelectbox label,
+.css-1d391kg .stNumberInput label,
+.css-1d391kg .stCheckbox label,
+.css-1d391kg .stFileUploader label {
+    color: #ffffff !important;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* File uploader styling */
+.stFileUploader {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.stFileUploader:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Buttons */
+.stButton button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 0.5rem 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stButton button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* Download buttons */
+.stDownloadButton button {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.7rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    margin: 0.25rem 0;
+}
+
+.stDownloadButton button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+}
+
+/* Metrics styling */
+.metric-container {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 0.5rem 0;
+}
+
+/* Tables */
+.stTable {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    margin: 1rem 0;
+    border: 2px solid #e0e0e0;
+}
+
+.stTable table {
+    width: 100%;
+}
+
+.stTable th {
+    background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+    color: #ffffff;
+    font-weight: 700;
+    padding: 1.2rem;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    border-bottom: 3px solid #0d47a1;
+}
+
+.stTable td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    color: #212121;
+    font-weight: 500;
+}
+
+.stTable tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.stTable tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.stTable tr:hover {
+    background-color: #e3f2fd;
+    transition: background-color 0.3s ease;
+    transform: scale(1.02);
+}
+
+/* Success/Error messages */
+.stSuccess {
+    background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    font-weight: 500;
+}
+
+.stError {
+    background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    font-weight: 500;
+}
+
+.stInfo {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    font-weight: 500;
+}
+
+/* Spinner */
+.stSpinner {
+    text-align: center;
+}
+
+/* Plot containers */
+.js-plotly-plot {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background: white;
+    margin: 1rem 0;
+}
+
+/* Input fields */
+.stNumberInput input,
+.stTextInput input {
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.9);
+    color: #212121;
+    font-weight: 600;
+}
+
+.stNumberInput input:focus,
+.stTextInput input:focus {
+    border-color: #1565c0;
+    box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.3);
+    background: #ffffff;
+}
+
+/* Checkbox */
+.stCheckbox {
+    color: white;
+}
+
+.stCheckbox input[type="checkbox"] {
+    accent-color: #667eea;
+}
+
+/* Markdown headers */
+h1, h2, h3, h4, h5, h6 {
+    color: #1a237e;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Main content text */
+.stMarkdown {
+    color: #212121;
+}
+
+/* Sidebar text */
+.css-1d391kg .stMarkdown {
+    color: #ffffff;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.element-container {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 2rem;
+    }
+    
+    .main-header p {
+        font-size: 1rem;
+    }
+    
+    .welcome-section {
+        padding: 1.5rem;
+    }
+}
+
+/* Progress bar */
+.stProgress .st-bo {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Expander */
+.streamlit-expanderHeader {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+}
+
+/* Force text visibility */
+.stMarkdown p, 
+.stMarkdown li, 
+.stMarkdown span,
+.stText {
+    color: #212121 !important;
+}
+
+/* Sidebar text visibility */
+.css-1d391kg .stMarkdown p,
+.css-1d391kg .stMarkdown li,
+.css-1d391kg .stMarkdown span {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* Table text contrast */
+.stTable tbody tr td {
+    color: #212121 !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.stTable tbody tr:nth-child(even) td {
+    background-color: rgba(245, 245, 245, 0.95) !important;
+}
+
+/* Ensure headers are visible */
+.stTable thead tr th {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%) !important;
+}
+
+/* File uploader text */
+.stFileUploader label {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
+/* Success/Error/Info messages text */
+.stSuccess div, .stError div, .stInfo div {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}

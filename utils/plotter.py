@@ -62,6 +62,7 @@ def plot_spectrogram(audio_path, sr=None, n_fft=2048, hop_length=512, freq_max=N
     plt.tight_layout()
 
     if save_path:
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
         plt.savefig(save_path)
         
     plt.show()
